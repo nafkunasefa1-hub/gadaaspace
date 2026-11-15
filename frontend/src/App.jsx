@@ -233,8 +233,8 @@ const GLOSSARY_ITEMS = [
 ];
 
 export default function App() {
-  const [viewMode, setViewMode] = useState('home'); // 'home' | 'dashboard'
-  const [experienceMode, setExperienceMode] = useState('explorer'); // 'explorer' (student-friendly) | 'expert'
+  const [viewMode, setViewMode] = useState('dashboard'); // 'dashboard' | 'home'
+  const [experienceMode, setExperienceMode] = useState('expert'); // 'expert' | 'explorer'
   const [activeExplorerTab, setActiveExplorerTab] = useState('story');
   const [activeTab, setActiveTab] = useState('tab-3d');
   const [activeScene, setActiveScene] = useState('habitat');
