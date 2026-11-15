@@ -3,7 +3,7 @@ import {
   Rocket, Shield, Sparkles, Globe, Compass, Award,
   ChevronRight, Play, X, Radio, ArrowUpRight, CheckCircle2,
   AlertTriangle, Zap, Atom, Users, BookOpen, Eye, Volume2, VolumeX,
-  Orbit, Activity, Dna, Radar, Shirt, Bot
+  Orbit, Activity, Dna, Radar, Shirt, Bot, ArrowRight, Presentation
 } from 'lucide-react';
 import CosmicCanvas from './CosmicCanvas';
 import AyaantuuWheel from './AyaantuuWheel';

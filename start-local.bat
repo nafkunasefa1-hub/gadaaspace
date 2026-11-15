@@ -6,7 +6,5 @@ echo   Starting local dev server at http://localhost:5173
 echo =======================================================================
 echo.
 cd /d "%~dp0frontend"
-timeout /t 2 /nobreak >nul
-start "" "http://localhost:5173"
-call npm run dev
+call npm run dev -- --open
 pause

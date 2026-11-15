@@ -24,6 +24,7 @@ import {
   RotateCcw,
   ChevronUp,
   ChevronDown,
+  ChevronRight,
   BookOpen,
   Calculator,
   Compass,
