@@ -169,6 +169,23 @@ export default function StudentExplorerView({
               <span>10-Min Pitch</span>
             </a>
           </div>
+
+          <a
+            href="/GadaSpace_HorizonX_NASA_SpaceApps_10Slide_Pitch.pptx"
+            download="GadaSpace_HorizonX_NASA_SpaceApps_10Slide_Pitch.pptx"
+            className="student-mode-switch-btn"
+            style={{
+              textDecoration: 'none',
+              borderColor: 'rgba(56, 189, 248, 0.45)',
+              background: 'rgba(56, 189, 248, 0.12)',
+              color: '#bae6fd',
+              marginTop: 4
+            }}
+            title="Download the official 10-slide Microsoft PowerPoint (.pptx) file"
+          >
+            <Presentation size={14} style={{ color: '#38bdf8' }} />
+            <span>📥 Download .PPTX Presentation</span>
+          </a>
         </div>
       </aside>
 

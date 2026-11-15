@@ -1213,6 +1213,24 @@ export default function App() {
               <span className="btn-lbl-hide-sm">10-Min Pitch Deck</span>
             </a>
 
+            <a
+              href="/GadaSpace_HorizonX_NASA_SpaceApps_10Slide_Pitch.pptx"
+              download="GadaSpace_HorizonX_NASA_SpaceApps_10Slide_Pitch.pptx"
+              className="cmd-btn"
+              title="Download Microsoft PowerPoint (.pptx) Pitch Deck"
+              style={{
+                textDecoration: 'none',
+                borderColor: 'rgba(56, 189, 248, 0.45)',
+                color: '#bae6fd',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 6
+              }}
+            >
+              <Presentation size={13} strokeWidth={1.75} style={{ color: '#38bdf8' }} />
+              <span className="btn-lbl-hide-sm">Download .PPTX</span>
+            </a>
+
             <button
               type="button"
               className={`cmd-btn ${audioEnabled ? 'geiger-active' : ''}`}
