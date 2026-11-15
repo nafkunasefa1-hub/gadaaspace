@@ -249,29 +249,6 @@ export default function HomePage({
           </div>
         </div>
 
-        {/* Persistent Global Upper Module Tab Strip */}
-        <div className="global-module-strip" role="navigation" aria-label="Quick Switch Module Workspaces">
-          <div className="gms-inner">
-            {GADASPACE_MODULES.map((m) => {
-              const IconComp = MODULE_ICON_MAP[m.iconKey] || Rocket;
-              return (
-                <button
-                  key={m.id}
-                  type="button"
-                  className={`gms-tab ${m.id === 'home' ? 'active' : ''}`}
-                  onClick={() => {
-                    onLaunchApp(m.id);
-                  }}
-                  title={m.title}
-                >
-                  <IconComp size={12} strokeWidth={1.75} />
-                  <span>{m.tabNum} &bull; {m.shortLabel}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
           <div className="mobile-drawer">
