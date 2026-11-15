@@ -203,8 +203,8 @@ export default function HomePage({
               <img src="/gadaspace-logo.jpg" alt="GadaSpace Official Seal" className="nav-logo-img" />
             </div>
             <div className="nav-brand-text">
-              <span className="brand-gada">GADA</span>
-              <span className="brand-space">Space</span>
+              <span className="brand-gada">gada</span>
+              <span className="brand-space">space</span>
               <span className="brand-team-pill">HORIZON-X</span>
             </div>
           </div>
@@ -1052,7 +1052,7 @@ export default function HomePage({
                 <img src="/gadaspace-logo.jpg" alt="GadaSpace Logo" className="nav-logo-img" />
               </div>
               <div>
-                <div className="footer-title"><span>GADA</span>Space v4.0</div>
+                <div className="footer-title"><span>gada</span>space v4.0</div>
                 <div className="footer-sub">Team Horizon-X &bull; 2026 NASA International Space Apps Challenge</div>
               </div>
             </div>

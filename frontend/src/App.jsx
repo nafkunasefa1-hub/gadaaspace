@@ -234,7 +234,7 @@ const GLOSSARY_ITEMS = [
 ];
 
 export default function App() {
-  const [viewMode, setViewMode] = useState('dashboard'); // 'dashboard' | 'home'
+  const [viewMode, setViewMode] = useState('home'); // 'home' | 'dashboard'
   const [experienceMode, setExperienceMode] = useState('expert'); // 'expert' | 'explorer'
   const [activeExplorerTab, setActiveExplorerTab] = useState('story');
   const [activeTab, setActiveTab] = useState('tab-3d');
@@ -963,7 +963,7 @@ export default function App() {
             </div>
             <div>
               <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 15, fontWeight: 700, color: '#fff', letterSpacing: 0.5 }}>
-                GADA<span style={{ color: '#38bdf8' }}>Space</span>
+                gada<span style={{ color: '#38bdf8' }}>space</span>
               </div>
               <div style={{ fontSize: 10, color: '#94a3b8', fontFamily: 'IBM Plex Mono, monospace' }}>
                 STUDENT &bull; EXPLORER MODE
@@ -1070,8 +1070,8 @@ export default function App() {
               <Rocket size={15} strokeWidth={2} style={{ color: '#D4AF37' }} />
             </div>
             <div className="brand-title">
-              <h1><span>GadaSpace</span> &bull; Team Horizon-X</h1>
-              <p>Deep-Space Radiation &amp; Shielding Digital Twin</p>
+              <h1><span>gadaspace</span> &bull; Team Horizon-X</h1>
+              <p>Keeping the Astronauts&apos; Health</p>
             </div>
           </div>
 

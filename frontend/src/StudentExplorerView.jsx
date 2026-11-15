@@ -44,7 +44,7 @@ export default function StudentExplorerView({
             <img src="/gadaspace-logo.jpg" alt="GadaSpace Emblem" className="student-seal-img" />
             <span className="student-mode-badge">STUDENT MODE</span>
           </div>
-          <h2 className="student-brand-title">GadaSpace Explorer</h2>
+          <h2 className="student-brand-title">gadaspace Explorer</h2>
           <p className="student-brand-sub">Space Radiation Made Simple • Zero Scary Equations</p>
         </div>
 
