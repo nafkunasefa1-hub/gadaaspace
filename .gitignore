@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env.virtual/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables & secrets (CRITICAL: Never commit credentials)
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# IDE & Editor artifacts
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Jupyter / Scientific notebooks
+.ipynb_checkpoints
+*.prof
+
+# Application logs & temporary files
+*.log
+logs/
+temp/
+tmp/
+.cache/
+.pytest_cache/
+
+# Streamlit local settings & cache
+.streamlit/
+
+# Temporary Office lock files
+~$*
+
+# Personal non-project files
+my part maths hw*/
+
+# Frontend node_modules & build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.vercel/
+.vercel/
