@@ -1288,15 +1288,11 @@ export default function App() {
               <button
                 key={mod.id}
                 type="button"
-                className={`tab-btn ${mod.id !== 'home' && activeTab === mod.id ? 'active' : ''}`}
+                className={`tab-btn ${activeTab === mod.id ? 'active' : ''}`}
                 title={`${mod.title} — ${mod.proofBadge}`}
                 onClick={() => {
-                  if (mod.id === 'home') {
-                    setViewMode('home');
-                  } else {
-                    setViewMode('dashboard');
-                    setActiveTab(mod.id);
-                  }
+                  setViewMode('dashboard');
+                  setActiveTab(mod.id);
                 }}
               >
                 <IconComp size={14} strokeWidth={1.75} />
@@ -2027,6 +2023,132 @@ export default function App() {
               </div>
             </div>
           )}
+
+          {/* TAB 0: Mission Overview & Platform Map */}
+          <div className={`tab-pane ${activeTab === 'home' ? 'active' : ''}`}>
+            {renderModuleContextStrip('home')}
+
+            {/* Executive Mission Banner */}
+            <div className="overview-hero-card">
+              <div className="overview-hero-top">
+                <div className="overview-tag">WHERE ANCIENT HERITAGE MEETS COSMIC HORIZONS</div>
+                <h2 className="overview-title">
+                  GadaSpace Executive Mission Overview &amp; Architecture Map
+                </h2>
+                <p className="overview-lead">
+                  Built for the 2026 NASA International Space Apps Challenge. Protecting astronauts on Artemis Moon stays and deep-space Mars voyages by solving the <strong>Nuclear Spallation Trap</strong> with <strong>BeCO &amp; ¹⁵⁷Gd-MXene Nanocomposites</strong>, <strong>Active Superconducting Magnetic Deflection</strong>, an <strong>Autonomous Smart Spacesuit with Geiger Audio Clicks</strong>, and <strong>5-Detector Kalman Consensus</strong>.
+                </p>
+              </div>
+
+              {/* 4 Core Quantitative Benchmarks */}
+              <div className="overview-metrics-grid">
+                <div className="overview-metric-box">
+                  <span className="ov-m-val" style={{ color: '#10b981' }}>-61.5%</span>
+                  <span className="ov-m-lbl">Net Cumulative Dose Cut</span>
+                  <span className="ov-m-sub">BeCO + ¹⁵⁷Gd vs. Heavy Lead</span>
+                </div>
+                <div className="overview-metric-box">
+                  <span className="ov-m-val" style={{ color: '#38bdf8' }}>&plusmn;4.8%</span>
+                  <span className="ov-m-lbl">Kalman Fused Accuracy</span>
+                  <span className="ov-m-sub">5 Sensors &bull; OLTARIS Priors</span>
+                </div>
+                <div className="overview-metric-box">
+                  <span className="ov-m-val" style={{ color: '#fbbf24' }}>255,000 b</span>
+                  <span className="ov-m-lbl">¹⁵⁷Gd Neutron Capture</span>
+                  <span className="ov-m-sub">1.5M&times; Higher than Lead</span>
+                </div>
+                <div className="overview-metric-box">
+                  <span className="ov-m-val" style={{ color: '#c084fc' }}>18.5 Hours</span>
+                  <span className="ov-m-lbl">Spacesuit Battery Life</span>
+                  <span className="ov-m-sub">0W Standby &bull; Millisecond Spool</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 4 Architectural Tiers */}
+            <div className="overview-tiers-grid">
+              <div className="overview-tier-card">
+                <div className="tier-tag cyan">TIER 1 &bull; MATERIALS</div>
+                <h3>BeCO &amp; Bio-Hybrid Graded-Z Shield</h3>
+                <p>
+                  Replaces heavy lead with Beryllium-Carbon-Oxygen (Z=4, 6, 8) and ¹⁵⁷Gd-MXene nanosheets with radiotrophic melanin. Stops cosmic rays without producing deadly secondary neutrons.
+                </p>
+                <button type="button" className="overview-card-cta" onClick={() => setActiveTab('tab-shield')}>
+                  <span>Open Shielding Lab</span>
+                  <ChevronRight size={14} />
+                </button>
+              </div>
+
+              <div className="overview-tier-card">
+                <div className="tier-tag purple">TIER 2 &bull; SENSOR BRAIN</div>
+                <h3>5-Detector Kalman Consensus</h3>
+                <p>
+                  Inspired by the Oromo Gadaa Gumii consensus, our Kalman filter unites Silicon, TEPC microdosimeter, CsI scintillator, neutron counter, and USB CMOS camera with &plusmn;4.8% RMSE accuracy.
+                </p>
+                <button type="button" className="overview-card-cta" onClick={() => setActiveTab('tab-fusion')}>
+                  <span>Open Sensor Fusion</span>
+                  <ChevronRight size={14} />
+                </button>
+              </div>
+
+              <div className="overview-tier-card">
+                <div className="tier-tag gold">TIER 3 &bull; ASTRONAUT HEALTH</div>
+                <h3>Digital Smart EVA Spacesuit</h3>
+                <p>
+                  Features real-time synthesized Geiger sound clicks in the helmet that speed up during solar storms, and micro-HTS coils that automatically deflect 88% of radiation away from bone marrow.
+                </p>
+                <button type="button" className="overview-card-cta" onClick={() => setActiveTab('tab-roadmap')}>
+                  <span>Open Smart Suit Lab</span>
+                  <ChevronRight size={14} />
+                </button>
+              </div>
+
+              <div className="overview-tier-card">
+                <div className="tier-tag emerald">TIER 4 &bull; AI &amp; ORBITS</div>
+                <h3>Gemini AI &amp; 3D Trajectory Corridors</h3>
+                <p>
+                  Live 6-stream NOAA SWPC ingestion with Parker Spiral early warnings (42 min to 2.5 hours advance notice), and 3D Polar Bypass flight paths cutting transit radiation by 63%.
+                </p>
+                <button type="button" className="overview-card-cta" onClick={() => setActiveTab('tab-predictor')}>
+                  <span>Open AI Storm Predictor</span>
+                  <ChevronRight size={14} />
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Workspace Navigation Matrix */}
+            <div className="overview-launch-matrix">
+              <div className="matrix-head">
+                <h3>Launch Any of the 8 Interactive Workspaces Directly</h3>
+                <p>Click any module below to immediately jump into the simulation:</p>
+              </div>
+              <div className="matrix-cards-grid">
+                {GADASPACE_MODULES.filter(m => m.id !== 'home').map(m => {
+                  const Icon = MODULE_ICON_MAP[m.iconKey] || Orbit;
+                  return (
+                    <div
+                      key={m.id}
+                      className="matrix-item-card"
+                      onClick={() => setActiveTab(m.id)}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      <div className="matrix-item-top">
+                        <Icon size={16} strokeWidth={1.75} style={{ color: '#38bdf8' }} />
+                        <span className="matrix-item-num">{m.tabNum}</span>
+                      </div>
+                      <h4>{m.shortLabel}</h4>
+                      <p>{m.summary}</p>
+                      <div className="matrix-item-foot">
+                        <span>Open Workspace</span>
+                        <ChevronRight size={14} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
 
           {/* TAB 1: 3D Spacecraft, Van Allen & Planetary Studio + 12-Col Bento Grid */}
           <div className={`tab-pane ${activeTab === 'tab-3d' ? 'active' : ''}`}>

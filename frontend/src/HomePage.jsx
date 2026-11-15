@@ -260,11 +260,7 @@ export default function HomePage({
                   type="button"
                   className={`gms-tab ${m.id === 'home' ? 'active' : ''}`}
                   onClick={() => {
-                    if (m.id === 'home') {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                      onLaunchApp(m.id);
-                    }
+                    onLaunchApp(m.id);
                   }}
                   title={m.title}
                 >

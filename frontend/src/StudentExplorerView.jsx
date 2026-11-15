@@ -59,7 +59,7 @@ export default function StudentExplorerView({
               <Sparkles size={16} />
             </div>
             <div className="nav-item-content">
-              <span className="nav-item-title">1. Story &amp; Takeaways</span>
+              <span className="nav-item-title">1. Mission Overview &amp; Story</span>
               <span className="nav-item-desc">What we built &amp; why it matters</span>
             </div>
           </button>
