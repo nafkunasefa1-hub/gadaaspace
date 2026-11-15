@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GadaSpace • NASA Space Apps 2026 — 10-Minute Presentation Deck</title>
+  <title>GadaSpace • NASA Space Apps 2026 — 5-Minute Pitch Deck (10 Slides)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #06080e;
-      --panel: #0c111c;
-      --elevated: #121a29;
+      --bg: #040711;
+      --panel: #0b111e;
+      --elevated: #111a2d;
       --border: rgba(148, 163, 184, 0.16);
       --cyan: #38bdf8;
       --purple: #c084fc;
@@ -46,19 +46,19 @@
     .slide {
       position: absolute;
       width: 90vw;
-      max-width: 1280px;
+      max-width: 1300px;
       height: 82vh;
       background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 40px 50px;
+      border-radius: 20px;
+      padding: 38px 48px;
       display: none;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75);
       opacity: 0;
       transform: translateY(12px) scale(0.99);
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transition: opacity 0.28s ease, transform 0.28s ease;
     }
 
     .slide.active {
@@ -87,70 +87,91 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+    .slide-pillar-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-left: 6px;
+      text-transform: uppercase;
+    }
     .slide-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 26px;
       font-weight: 700;
       color: #fff;
       margin-top: 6px;
+      letter-spacing: -0.01em;
     }
     .slide-timing {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 12px;
       color: var(--gold);
       background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      border: 1px solid rgba(245, 158, 11, 0.28);
       padding: 4px 10px;
       border-radius: 6px;
-      font-weight: 600;
+      white-space: nowrap;
     }
 
-    /* Slide Body */
+    /* Body Layouts */
     .slide-body {
-      flex: 1;
-      padding: 24px 0;
       display: flex;
       gap: 32px;
-      align-items: center;
-      overflow-y: auto;
+      flex: 1;
+      margin: 20px 0;
+      align-items: stretch;
+      min-height: 0;
     }
-    .col-half { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+    .col-half {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
 
-    /* Visual Cards & Badges */
+    /* Cards */
     .card {
       background: var(--elevated);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 20px;
+      border-radius: 14px;
+      padding: 20px 24px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
     .card-title {
-      font-size: 14px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14.5px;
       font-weight: 700;
       color: var(--cyan);
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
+    /* Metric Boxes */
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
     .metric-box {
-      background: rgba(6, 8, 14, 0.6);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 14px;
+      border-radius: 12px;
+      padding: 14px;
       text-align: center;
     }
     .metric-val {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 700;
-      color: #fff;
     }
     .metric-lbl {
       font-size: 11px;
@@ -158,84 +179,80 @@
       margin-top: 4px;
     }
 
-    ul.bullet-list {
+    /* Bullet List */
+    .bullet-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
-    ul.bullet-list li {
+    .bullet-list li {
       display: flex;
-      gap: 12px;
       align-items: flex-start;
-      font-size: 14px;
+      gap: 10px;
+      font-size: 13.5px;
       line-height: 1.5;
       color: #e2e8f0;
     }
-    ul.bullet-list li strong { color: #fff; }
     .b-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background: var(--cyan);
-      margin-top: 7px;
+      margin-top: 6px;
       flex-shrink: 0;
     }
 
     /* Speaker Notes Drawer */
     .notes-drawer {
-      background: rgba(18, 26, 41, 0.95);
-      border-top: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 14px 20px;
-      border-radius: 0 0 16px 16px;
-      font-size: 13px;
-      line-height: 1.55;
-      color: #cbd5e1;
+      background: rgba(3, 7, 18, 0.7);
+      border: 1px dashed rgba(245, 158, 11, 0.35);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 12px;
+      color: #fde68a;
+      line-height: 1.45;
       display: flex;
-      gap: 12px;
-      align-items: flex-start;
+      align-items: center;
+      gap: 10px;
+      font-family: 'IBM Plex Mono', monospace;
     }
     .notes-tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10px;
       font-weight: 700;
       color: var(--gold);
-      background: rgba(245, 158, 11, 0.15);
-      padding: 2px 6px;
-      border-radius: 4px;
       flex-shrink: 0;
     }
 
-    /* Global Navigation Controls */
+    /* Navigation Bar at Bottom */
     #nav-bar {
       position: fixed;
-      bottom: 18px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(12, 17, 28, 0.9);
-      backdrop-filter: blur(12px);
+      background: rgba(11, 17, 30, 0.95);
       border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 8px 22px;
+      padding: 8px 20px;
       display: flex;
       align-items: center;
-      gap: 18px;
-      font-size: 13px;
-      z-index: 100;
+      gap: 16px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
     }
     .nav-btn {
       background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      transition: background 0.15s;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.15s ease;
     }
     .nav-btn:hover { background: rgba(255, 255, 255, 0.1); }
     .progress-track {
@@ -248,8 +265,33 @@
     .progress-fill {
       height: 100%;
       background: var(--cyan);
-      width: 8.33%;
+      width: 10%;
       transition: width 0.25s ease;
+    }
+
+    /* Live Countdown Clock */
+    .deck-timer {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.15);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      cursor: pointer;
+    }
+
+    /* Geiger Test Button in Nav */
+    .geiger-test-btn {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     /* Print Styles for Export to PDF/PowerPoint */
@@ -274,29 +316,32 @@
 
   <div id="deck-container">
 
-    <!-- SLIDE 1 -->
+    <!-- ====================================================================
+         SLIDE 1: INTRODUCTION & MISSION MANDATE
+         ==================================================================== -->
     <div class="slide active" id="slide-1">
       <div class="slide-header">
         <div>
-          <span class="slide-num-pill">SLIDE 01 / 12 &bull; INTRODUCTION</span>
+          <span class="slide-num-pill">SLIDE 01 / 10 &bull; INTRODUCTION</span>
+          <span class="slide-pillar-tag">5-MIN PITCH</span>
           <h2 class="slide-title">GadaSpace • Team Horizon-X</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Autonomous Multi-Tier Radiation Shielding, Digital Smart EVA Spacesuit & AI Heliophysics for Artemis and Mars</p>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Autonomous Multi-Tier Radiation Shielding, Digital Smart EVA Spacesuit &amp; AI Heliophysics</p>
         </div>
-        <div class="slide-timing">⏱ 0:00 – 0:45</div>
+        <div class="slide-timing">⏱ 0:00 – 0:30 (30s)</div>
       </div>
       <div class="slide-body">
         <div class="col-half" style="align-items: center; text-align: center;">
-          <div style="width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent); border: 2px solid var(--cyan); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 35px rgba(56, 189, 248, 0.35);">
-            <span style="font-size: 42px;">🪐</span>
+          <div style="width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent); border: 2px solid var(--cyan); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 35px rgba(56, 189, 248, 0.35);">
+            <img src="/gadaspace-logo.jpg" alt="Logo" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
           </div>
-          <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin-top: 14px;">NASA Space Apps Challenge 2026</h3>
-          <p style="font-size: 13.5px; color: var(--cyan); font-family: 'IBM Plex Mono', monospace;">MISSION HOMEPAGE • ORION DIGITAL TWIN</p>
+          <h3 style="font-size: 19px; font-weight: 700; color: #fff; margin-top: 12px;">NASA Space Apps Challenge 2026</h3>
+          <p style="font-size: 12.5px; color: var(--cyan); font-family: 'IBM Plex Mono', monospace;">ADDIS ABABA &bull; TEAM HORIZON-X</p>
         </div>
         <div class="col-half">
           <div class="card" style="border-left: 3px solid var(--cyan);">
-            <div class="card-title">🚀 THE DEEP SPACE EXPEDITION MANDATE</div>
-            <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.55;">
-              During Apollo 16 & 17, an extreme solar proton storm erupted that would have delivered a lethal 4.0-Sievert dose on the lunar surface. Today, for 30-day Artemis surface stays and 900-day Mars voyages, luck is no longer an engineering strategy.
+            <div class="card-title">🚀 THE DEEP SPACE MANDATE</div>
+            <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55;">
+              During Apollo 16 &amp; 17, an extreme solar proton event erupted that would have delivered a lethal 4.0-Sievert dose on the lunar surface. Today, for 30-day Artemis surface stays and 900-day Mars voyages, <strong>luck is not an engineering plan</strong>. Radiation is the #1 biological bottleneck to deep-space exploration.
             </p>
           </div>
           <div class="metric-grid">
@@ -316,163 +361,236 @@
         </div>
       </div>
       <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"Judges, distinguished mentors: Welcome. Radiation is the single greatest biological barrier to permanent human exploration in deep space. We are Team Horizon-X, and this is GadaSpace—a multi-tier aerospace system combining biomimetic nanomaterials, digital spacesuits, multi-sensor Kalman fusion, and Google Gemini AI orbital optimization."</span>
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"Judges, welcome. Deep space radiation is the single greatest biological barrier to permanent human exploration of the Moon and Mars. We are Team Horizon-X, and this is GadaSpace—a multi-tier aerospace system combining BeCO nanomaterials, a digital smart spacesuit, multi-sensor Kalman fusion, and Google Gemini AI orbital optimization."</span>
       </div>
     </div>
 
-    <!-- SLIDE 2 -->
+    <!-- ====================================================================
+         SLIDE 2: THE CORE PROBLEM & THE LEAD SPALLATION PARADOX
+         ==================================================================== -->
     <div class="slide" id="slide-2">
       <div class="slide-header">
         <div>
-          <span class="slide-num-pill">SLIDE 02 / 12 &bull; PROBLEM ANALYSIS</span>
-          <h2 class="slide-title">The Problem & The "Lead Spallation Paradox"</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Why traditional heavy shielding makes radiation worse in deep space</p>
+          <span class="slide-num-pill">SLIDE 02 / 10 &bull; THE PROBLEM</span>
+          <span class="slide-pillar-tag">PILLAR 1: IMPACT</span>
+          <h2 class="slide-title">The Problem &amp; The "Lead Spallation Paradox"</h2>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Why traditional heavy metal shielding actually makes radiation worse inside spacecraft</p>
         </div>
-        <div class="slide-timing">⏱ 0:45 – 1:45</div>
+        <div class="slide-timing">⏱ 0:30 – 1:00 (30s)</div>
       </div>
       <div class="slide-body">
         <div class="col-half">
           <div class="card" style="border-left: 3px solid var(--rose);">
-            <div class="card-title" style="color: var(--rose);">⚠️ THE LEAD SPALLATION PARADOX</div>
-            <p style="font-size: 13px; color: #cbd5e1; line-height: 1.5;">
-              When relativistic Galactic Cosmic Rays (>1 GeV Iron nuclei) strike heavy Lead (Z=82), the heavy nucleus shatters through <strong>nuclear spallation</strong>, creating cascades of secondary fast neutrons (Q = 10–20) and Bremsstrahlung X-rays.
+            <div class="card-title" style="color: var(--rose);">⚠️ THE HEAVY METAL SPALLATION TRAP</div>
+            <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55;">
+              When relativistic Galactic Cosmic Rays (GeV Iron ⁵⁶Fe ions) strike heavy Lead (Z=82) or Aluminum, the heavy nucleus shatters via <strong>nuclear spallation</strong>.
             </p>
-            <div style="background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 6px; padding: 8px 12px; font-size: 12px; color: #fecdd3; font-family: 'IBM Plex Mono', monospace;">
-              Adding 500kg of pure lead increases cabin biological cancer dose by +42%!
+            <div style="background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.35); border-radius: 8px; padding: 10px; font-size: 12px; color: #fecdd3; font-family: 'IBM Plex Mono', monospace;">
+              This turns metal armor into an internal factory of lethal, uncharged secondary neutrons (Q = 10–20) and Bremsstrahlung X-rays!
             </div>
           </div>
         </div>
         <div class="col-half">
           <ul class="bullet-list">
-            <li><span class="b-dot"></span><div><strong>Continuous Magnet Battery Depletion:</strong> Active magnetic coils draw >250W, draining spacesuit batteries in 45 minutes and causing chronic electromagnetic load.</div></li>
-            <li><span class="b-dot"></span><div><strong>Sensor Saturation & Blind Spots:</strong> Silicon misses fast neutrons; tissue-equivalent counters drift over long missions.</div></li>
-            <li><span class="b-dot"></span><div><strong>Static Orbital Paths:</strong> Fixed trajectories punch blindly through the Van Allen proton horns during solar maximums.</div></li>
+            <li><span class="b-dot" style="background: var(--rose);"></span><div><strong>Single-Sensor Blind Spot:</strong> Standard silicon dosimeters are 92% blind to uncharged neutrons (-21.4% underestimation error!).</div></li>
+            <li><span class="b-dot" style="background: var(--gold);"></span><div><strong>Silent, Odorless Threat:</strong> Astronauts have zero sensory cues when radiation peaks, causing irreversible DNA double-strand breaks.</div></li>
+            <li><span class="b-dot" style="background: var(--cyan);"></span><div><strong>Continuous Magnet Weight &amp; Drain:</strong> Continuous active coils drain suit batteries in 45 minutes, rendering spacewalks impossible.</div></li>
           </ul>
         </div>
       </div>
       <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"Let us dismantle the biggest myth in shielding: adding heavy metal like lead. In space, relativistic GCR iron nuclei strike lead nuclei, triggering nuclear spallation. The lead shatters into showers of secondary neutrons. Because neutrons have a quality factor Q up to 20, adding lead actually increases the cancer dose inside the cabin. We had to rethink the physics."</span>
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"Let's shatter the biggest myth in aerospace: adding heavy lead armor. When cosmic iron ions strike lead, they trigger nuclear spallation, spewing uncharged neutrons that carry a biological damage factor up to 20! Adding lead actually increases cancer risk inside the cabin. Furthermore, silicon sensors are blind to neutrons, leaving astronauts in the dark."</span>
       </div>
     </div>
 
-    <!-- SLIDE 3 -->
+    <!-- ====================================================================
+         SLIDE 3: SOLUTION 1 — BeCO & COMPOSITE SHIELDING
+         ==================================================================== -->
     <div class="slide" id="slide-3">
       <div class="slide-header">
         <div>
-          <span class="slide-num-pill">SLIDE 03 / 12 &bull; SYSTEM ARCHITECTURE</span>
-          <h2 class="slide-title">The GadaSpace 4-Tier Consensus Architecture</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Inspired by the Oromo Gadaa democratic consensus system: No single component bears the entire load</p>
+          <span class="slide-num-pill">SLIDE 03 / 10 &bull; SOLUTION 1: MATERIALS</span>
+          <span class="slide-pillar-tag">PILLAR 2 &amp; 3: CREATIVITY &amp; VALIDITY</span>
+          <h2 class="slide-title">Solution 1: Advanced Low-Z &amp; BeCO Composite Shielding</h2>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Quenching spallation: Light atoms stop cosmic rays without producing secondary neutrons</p>
         </div>
-        <div class="slide-timing">⏱ 1:45 – 2:45</div>
-      </div>
-      <div class="slide-body">
-        <div class="metric-grid" style="grid-template-columns: repeat(2, 1fr); width: 100%;">
-          <div class="card" style="border-left: 3px solid var(--cyan);">
-            <div class="card-title">TIER 1: GRADED-Z NANOMATERIALS</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">Hydrogen-rich HDPE slows protons; ¹⁵⁷Gd-MXene swallows thermalized neutrons without secondary gamma cascades; fungal melanin biopolymer scavenges free radicals.</p>
-          </div>
-          <div class="card" style="border-left: 3px solid var(--purple);">
-            <div class="card-title" style="color: var(--purple);">TIER 2: 5-DETECTOR KALMAN FUSION</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">Fuses Silicon PIN, TEPC microdosimeter, Bonner Sphere, scintillator, and physical optical CMOS camera, slashing measurement error to &plusmn;2.8% RMSE.</p>
-          </div>
-          <div class="card" style="border-left: 3px solid var(--gold);">
-            <div class="card-title" style="color: var(--gold);">TIER 3: DIGITAL SMART EVA SUIT</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">Coils stay at 0W (dormant) during quiet EVA (>18h battery). When dosimeters detect radiation rising &ge; 5.0 mSv/h, ReBCO coils fire in milliseconds, deflecting 88% organ dose.</p>
-          </div>
-          <div class="card" style="border-left: 3px solid var(--emerald);">
-            <div class="card-title" style="color: var(--emerald);">TIER 4: GEMINI AI & 3D TRAJECTORIES</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">Real-time NOAA GOES-18 satellite stream ingestion, Parker Spiral early warnings, and 3D flight corridor optimization cutting transit radiation by 63%.</p>
-          </div>
-        </div>
-      </div>
-      <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"We drew inspiration from the indigenous Gadaa consensus model—no single entity bears the burden alone. GadaSpace integrates four tiers: biomimetic nanomaterials, Kalman multi-sensor fusion, an autonomous digital smart suit, and Google Gemini AI orbital trajectory optimization."</span>
-      </div>
-    </div>
-
-    <!-- SLIDE 4 -->
-    <div class="slide" id="slide-4">
-      <div class="slide-header">
-        <div>
-          <span class="slide-num-pill">SLIDE 04 / 12 &bull; TIER 1: MATERIALS</span>
-          <h2 class="slide-title">Tier 1: Quenching the Neutron Cascade (¹⁵⁷Gd-MXene)</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">254,000 Barns Neutron Capture Cross-Section: 1,500,000× Higher than Lead</p>
-        </div>
-        <div class="slide-timing">⏱ 2:45 – 3:45</div>
+        <div class="slide-timing">⏱ 1:00 – 1:30 (30s)</div>
       </div>
       <div class="slide-body">
         <div class="col-half">
-          <div class="card">
-            <div class="card-title">🔬 THE GRADED-Z MULTI-LAYER STACK</div>
+          <div class="card" style="border-left: 3px solid var(--emerald);">
+            <div class="card-title" style="color: var(--emerald);">🔬 THE 3-LAYER GRADED-Z ARCHITECTURE</div>
             <ul class="bullet-list" style="gap: 10px;">
-              <li><span class="b-dot"></span><div><strong>Outer Layer: HDPE ($Z=1, 6$)</strong><br><small style="color: var(--muted);">Slows relativistic protons via equal-mass proton-proton elastic collisions.</small></div></li>
-              <li><span class="b-dot" style="background: var(--purple);"></span><div><strong>Core Layer: ¹⁵⁷Gd-MXene Nanocomposite</strong><br><small style="color: var(--muted);">Swallows thermalized neutrons cleanly without secondary spallation cascades.</small></div></li>
-              <li><span class="b-dot" style="background: var(--emerald);"></span><div><strong>Inner Layer: Fungal Melanin + Bismuth Biopolymer</strong><br><small style="color: var(--muted);">Radiotrophic fungal melanin accelerates enzymatic DNA double-strand break repair.</small></div></li>
+              <li><span class="b-dot" style="background: var(--cyan);"></span><div><strong>Outer Layer: BeCO (Beryllium-Carbon-Oxygen) Matrix</strong><br><small style="color: var(--muted);">Low atomic mass (Z=4, 6, 8) absorbs incoming relativistic protons without spallation.</small></div></li>
+              <li><span class="b-dot" style="background: var(--purple);"></span><div><strong>Core Layer: ¹⁵⁷Gd-MXene Nanocomposite</strong><br><small style="color: var(--muted);">Massive 255,000-barn thermal neutron capture cross-section swallows neutrons cleanly.</small></div></li>
+              <li><span class="b-dot" style="background: var(--emerald);"></span><div><strong>Inner Layer: Chernobyl Fungal Melanin Hydrogel</strong><br><small style="color: var(--muted);">Radiotrophic melanin converts residual ionizing energy into harmless heat.</small></div></li>
             </ul>
           </div>
         </div>
         <div class="col-half">
           <div class="metric-grid" style="grid-template-columns: 1fr;">
             <div class="metric-box">
-              <div class="metric-val" style="color: var(--purple);">254,000 barns</div>
-              <div class="metric-lbl">¹⁵⁷Gd Thermal Neutron Cross-Section (Lead = 0.17 b)</div>
+              <div class="metric-val" style="color: var(--emerald);">-61.5%</div>
+              <div class="metric-lbl">Net Cumulative Dose Reduction in Interplanetary GCR</div>
             </div>
             <div class="metric-box">
-              <div class="metric-val" style="color: var(--emerald);">-92.4%</div>
-              <div class="metric-lbl">Secondary Neutron Suppression inside Cabin</div>
+              <div class="metric-val" style="color: var(--purple);">255,000 barns</div>
+              <div class="metric-lbl">¹⁵⁷Gd Neutron Capture (vs. Lead 0.17 barns &bull; 1.5M&times; Higher!)</div>
             </div>
             <div class="metric-box">
-              <div class="metric-val" style="color: var(--cyan);">-44.8%</div>
-              <div class="metric-lbl">Areal Mass Reduction vs. Standard Aerospace Aluminum</div>
+              <div class="metric-val" style="color: var(--cyan);">+145 kg</div>
+              <div class="metric-lbl">Lightweight Launch Mass (Saves &gt;355 kg vs. Conventional Armor)</div>
             </div>
           </div>
         </div>
       </div>
       <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"In Tier 1, incoming cosmic protons first strike HDPE. Equal mass transfers kinetic energy efficiently, slowing particles without shattering. Behind this, Gadolinium-157 has a capture cross-section of 254,000 barns—1.5 million times higher than lead. It swallows neutrons cleanly like a sponge, slashing secondary neutrons by 92%."</span>
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"To fix the spallation paradox, we replaced heavy lead with a Graded-Z composite: Beryllium-Carbon-Oxygen (BeCO) on the outside to slow protons without shattering, followed by Gadolinium-157 MXene with a capture cross-section of 255,000 barns to swallow neutrons like a sponge, backed by radiotrophic melanin."</span>
       </div>
     </div>
 
-    <!-- SLIDE 5 -->
+    <!-- ====================================================================
+         SLIDE 4: SOLUTION 2 — ACTIVE MAGNETIC DEFLECTION (ODAA-AEGIS)
+         ==================================================================== -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <div>
+          <span class="slide-num-pill">SLIDE 04 / 10 &bull; SOLUTION 2: ACTIVE SHIELD</span>
+          <span class="slide-pillar-tag">PILLAR 2: CREATIVITY</span>
+          <h2 class="slide-title">Solution 2: Active Superconducting Magnetic Deflection</h2>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Lorentz force &vec;F = q(&vec;v &times; &vec;B) deflecting solar flares with smart power duty-cycling</p>
+        </div>
+        <div class="slide-timing">⏱ 1:30 – 2:00 (30s)</div>
+      </div>
+      <div class="slide-body">
+        <div class="col-half">
+          <div class="card" style="border-left: 3px solid var(--purple);">
+            <div class="card-title" style="color: var(--purple);">⚡ 3.5-TESLA HTS SOLENOID DEFLECTION</div>
+            <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55;">
+              High-Temperature Superconducting (HTS ReBCO) coil arrays encircle the crew habitat, creating a localized magnetic deflector that bends positively charged solar protons away from the spacecraft.
+            </p>
+            <div style="background: rgba(192, 132, 252, 0.12); border: 1px solid rgba(192, 132, 252, 0.35); border-radius: 8px; padding: 10px; font-size: 12px; color: #e9d5ff; font-family: 'IBM Plex Mono', monospace;">
+              Smart Standby: 0 Watts in quiet space &rarr; Instant millisecond spool-up during flare spikes!
+            </div>
+          </div>
+        </div>
+        <div class="col-half">
+          <div class="metric-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="metric-box">
+              <div class="metric-val" style="color: var(--emerald);">100%</div>
+              <div class="metric-lbl">Deflection of &lt;100 MeV Solar Protons</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-val" style="color: var(--cyan);">0 Watts</div>
+              <div class="metric-lbl">Nominal Quiet Standby Power</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">🛡️ HYBRID PASSIVE-ACTIVE SYNERGY</div>
+            <p style="font-size: 12.5px; color: #cbd5e1;">
+              The magnetic field handles 90% of charged solar protons, while the BeCO and ¹⁵⁷Gd nanocomposite passively swallows uncharged cosmic rays and neutrons.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="notes-drawer">
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"In Solution 2, we pair passive materials with active High-Temperature Superconducting coils. Instead of leaving magnets running continuously, our system stays dormant at zero watts during quiet space. When our sensors detect an incoming solar storm, the coils spool up in milliseconds, deflecting protons before they hit the hull."</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 5: RECREATING THE ASTRONAUT SMART SPACESUIT
+         ==================================================================== -->
     <div class="slide" id="slide-5">
       <div class="slide-header">
         <div>
-          <span class="slide-num-pill">SLIDE 05 / 12 &bull; TIER 2: SENSORS</span>
-          <h2 class="slide-title">Tier 2: 5-Detector Kalman Sensor Fusion</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Physical USB Serial & Covered-Lens CMOS Optical Bridge with &plusmn;2.8% RMSE</p>
+          <span class="slide-num-pill">SLIDE 05 / 10 &bull; ASTRONAUT HEALTH</span>
+          <span class="slide-pillar-tag">PILLAR 1 &amp; 2: IMPACT &amp; CREATIVITY</span>
+          <h2 class="slide-title">Recreating the Astronaut Smart EVA Spacesuit</h2>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Embedded micro-magnetic coils &amp; real-time Auditory Geiger-Müller radiation sound cues</p>
         </div>
-        <div class="slide-timing">⏱ 3:45 – 4:45</div>
+        <div class="slide-timing">⏱ 2:00 – 2:30 (30s)</div>
+      </div>
+      <div class="slide-body">
+        <div class="col-half">
+          <div class="card" style="border-left: 3px solid var(--gold);">
+            <div class="card-title" style="color: var(--gold);">🔊 REAL-TIME AUDITORY RADIATION CLICKS</div>
+            <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55;">
+              Spacewalking astronauts cannot stare at telemetry screens while operating drills or rovers. Our suit incorporates a <strong>Web Audio synthesized Geiger clicker</strong> directly in the helmet audio feed.
+            </p>
+            <div style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 10px; font-size: 12px; color: #fde68a;">
+              Clicks speed up proportionally with flux; at &ge;5.0 mSv/hr, a high-pitch tone alerts the astronaut instantly!
+            </div>
+          </div>
+        </div>
+        <div class="col-half">
+          <div class="card" style="border-left: 3px solid var(--cyan);">
+            <div class="card-title">🦺 WEARABLE MICRO-HTS MAGNETIC DEFLECTION</div>
+            <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55;">
+              Flexible superconducting loops embedded across the suit's chest, waist, and helmet generate a 0.8-Tesla deflection bubble over vital blood-forming bone marrow.
+            </p>
+            <div class="metric-grid" style="margin-top: 8px;">
+              <div class="metric-box">
+                <div class="metric-val" style="color: var(--emerald);">18.5h</div>
+                <div class="metric-lbl">Battery Life (0W Standby)</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-val" style="color: var(--cyan);">-88%</div>
+                <div class="metric-lbl">Organ Dose Deflected</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="notes-drawer">
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"Now to the astronaut's personal health: we recreated the EVA spacesuit. First, we gave it an audible voice: synthesized Geiger clicks sound directly in the astronaut's headset, clicking faster as radiation rises. Second, micro-magnetic coils in the suit activate automatically during spikes, deflecting 88% of organ dose while preserving 18 hours of battery."</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 6: KALMAN MULTI-DETECTOR SENSOR FUSION
+         ==================================================================== -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <div>
+          <span class="slide-num-pill">SLIDE 06 / 10 &bull; SENSOR BRAIN</span>
+          <span class="slide-pillar-tag">PILLAR 3: VALIDITY</span>
+          <h2 class="slide-title">Kalman Multi-Detector Sensor Fusion (Gumii Consensus)</h2>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Combining 5 heterogeneous sensors into ONE single source of truth with &plusmn;4.8% RMSE</p>
+        </div>
+        <div class="slide-timing">⏱ 2:30 – 3:00 (30s)</div>
       </div>
       <div class="slide-body">
         <div class="col-half">
           <div class="card">
-            <div class="card-title">📡 5-HETEROGENEOUS DETECTOR ARRAY</div>
-            <ul class="bullet-list" style="gap: 8px; font-size: 13px;">
-              <li><span class="b-dot"></span><div><strong>Silicon PIN Diode:</strong> High-speed charged particle flux counting.</div></li>
-              <li><span class="b-dot"></span><div><strong>Microdosimetric TEPC:</strong> Direct Linear Energy Transfer ($y$ in keV/&mu;m).</div></li>
-              <li><span class="b-dot"></span><div><strong>Bonner Sphere Scintillator:</strong> Thermal and fast neutron discrimination.</div></li>
-              <li><span class="b-dot"></span><div><strong>Rad-Hard Fiber Scintillator:</strong> Wide dynamic range dose rate.</div></li>
-              <li><span class="b-dot" style="background: var(--gold);"></span><div><strong>Covered-Lens CMOS Camera:</strong> Direct ionizing strike telemetry via USB Serial.</div></li>
+            <div class="card-title">📡 5-SENSOR HETEROGENEOUS ARRAY</div>
+            <ul class="bullet-list" style="gap: 8px; font-size: 12.5px;">
+              <li><span class="b-dot"></span><div><strong>Silicon Diode:</strong> High-speed charged ion counting (8% n⁰ blind spot).</div></li>
+              <li><span class="b-dot"></span><div><strong>TEPC Microdosimeter:</strong> Lineal energy tissue deposition.</div></li>
+              <li><span class="b-dot"></span><div><strong>CsI Scintillator:</strong> Secondary Bremsstrahlung X-ray capture.</div></li>
+              <li><span class="b-dot" style="background: var(--emerald);"></span><div><strong>¹⁵⁷Gd/³He Counter:</strong> Dedicated 255k-barn neutron sensor.</div></li>
+              <li><span class="b-dot" style="background: var(--gold);"></span><div><strong>Covered-Lens CMOS Camera:</strong> Direct physical ionizing strikes via USB.</div></li>
             </ul>
           </div>
         </div>
         <div class="col-half">
           <div class="card" style="border-left: 3px solid var(--cyan);">
-            <div class="card-title">⚡ INVERSE-VARIANCE KALMAN RE-WEIGHTING</div>
+            <div class="card-title">⚖️ INVERSE-VARIANCE KALMAN RE-WEIGHTING</div>
             <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55;">
-              When solar flares cause silicon diodes to saturate or enter non-linear response, the Kalman filter dynamically re-weights sensor variances ($w_i \propto 1/\sigma_i^2$).
+              Inspired by the Oromo Gadaa Gumii assembly where no single voice dominates blindly, our Kalman filter dynamically re-weights sensor variances ($w_i \propto 1/\sigma_i^2$).
             </p>
             <div class="metric-grid" style="margin-top: 8px;">
               <div class="metric-box">
-                <div class="metric-val" style="color: var(--rose);">&plusmn;18.5%</div>
-                <div class="metric-lbl">Raw Sensor Error</div>
+                <div class="metric-val" style="color: var(--rose);">&plusmn;28.4%</div>
+                <div class="metric-lbl">Single-Sensor Error</div>
               </div>
               <div class="metric-box">
-                <div class="metric-val" style="color: var(--emerald);">&plusmn;2.8%</div>
+                <div class="metric-val" style="color: var(--emerald);">&plusmn;4.8%</div>
                 <div class="metric-lbl">Kalman Fused RMSE</div>
               </div>
             </div>
@@ -480,369 +598,327 @@
         </div>
       </div>
       <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"In Tier 2, GadaSpace combines five detectors, including a physical covered-lens CMOS camera connected via USB. Our inverse-variance Kalman filter re-weights sensor drift in real time, cutting uncertainty from eighteen percent down to plus-or-minus 2.8 percent."</span>
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"How do we monitor astronaut health accurately? Never rely on one sensor. Inspired by the Gadaa consensus assembly, our Kalman filter fuses five heterogeneous detectors—silicon, tissue counters, scintillators, and neutron detectors. It dynamically re-weights sensor drift, slashing dose uncertainty from ±28% down to ±4.8%."</span>
       </div>
     </div>
 
-    <!-- SLIDE 6 -->
-    <div class="slide" id="slide-6">
-      <div class="slide-header">
-        <div>
-          <span class="slide-num-pill">SLIDE 06 / 12 &bull; TIER 3: SMART SUIT</span>
-          <h2 class="slide-title">Tier 3: "Aegis-Gadaa Mk.V" Digital Smart EVA Suit</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Autonomous Edge Intelligence: 0W Quiet Standby vs. Instant Magnetic Deflection</p>
-        </div>
-        <div class="slide-timing">⏱ 4:45 – 5:45</div>
-      </div>
-      <div class="slide-body">
-        <div class="col-half">
-          <div class="card" style="border-left: 3px solid var(--emerald);">
-            <div class="card-title" style="color: var(--emerald);">STATE 1: QUIET EVA (FLUX &lt; 2.5 mSv/h)</div>
-            <p style="font-size: 13px; color: #cbd5e1;">ReBCO HTS coils remain completely dormant at <strong>0 Watts</strong>. Delivers <strong>18.5 hours</strong> of battery endurance with zero chronic electromagnetic field exposure.</p>
-          </div>
-          <div class="card" style="border-left: 3px solid var(--rose);">
-            <div class="card-title" style="color: var(--rose);">STATE 2: STORM SPIKE (FLUX &ge; 5.0 mSv/h)</div>
-            <p style="font-size: 13px; color: #cbd5e1;">Microcontroller fires magnetic field in milliseconds: Lorentz force $\vec{F} = q(\vec{v} \times \vec{B})$ deflects incoming protons, pressurizes ¹⁰B-water vest, dims visor, and chimes audio Geiger alert.</p>
-          </div>
-        </div>
-        <div class="col-half">
-          <div class="metric-grid" style="grid-template-columns: 1fr 1fr;">
-            <div class="metric-box">
-              <div class="metric-val" style="color: var(--emerald);">18.5 Hours</div>
-              <div class="metric-lbl">Nominal Battery Life (vs. 45 min continuous)</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-val" style="color: var(--cyan);">-88%</div>
-              <div class="metric-lbl">Core Organ Dose Deflection on Demand</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title" style="color: var(--gold);">🔊 REAL-TIME GEIGER AUDIO SONIFICATION</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">Web Audio API sonifier generates proportional Geiger clicking and urgent dual-tone alerts directly in astronaut headsets during flux spikes.</p>
-          </div>
-        </div>
-      </div>
-      <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"We electronized the astronaut suit with autonomous edge intelligence. During nominal spacewalks, the coils sit at zero watts, extending battery endurance to 18 hours. When radiation spikes above 5.0 mSv/hr, the suit automatically fires ReBCO magnetic coils, deflecting 88% of core organ dose in milliseconds."</span>
-      </div>
-    </div>
-
-    <!-- SLIDE 7 -->
+    <!-- ====================================================================
+         SLIDE 7: AI SOLAR STORM PREDICTOR (NOAA + GEMINI AI)
+         ==================================================================== -->
     <div class="slide" id="slide-7">
       <div class="slide-header">
         <div>
-          <span class="slide-num-pill">SLIDE 07 / 12 &bull; TIER 4: AI & NOAA</span>
-          <h2 class="slide-title">Tier 4: Gemini AI Heliophysics & Live NOAA Telemetry</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Parker Spiral Early Warnings: 42 Minutes to 2.5 Hours Advance Notice</p>
+          <span class="slide-num-pill">SLIDE 07 / 10 &bull; AI FORECASTER</span>
+          <span class="slide-pillar-tag">PILLAR 4: RELEVANCE (NASA OPEN DATA)</span>
+          <h2 class="slide-title">AI Solar Storm Predictor (Gemini + NOAA SWPC)</h2>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Real-time satellite ingestion: 42 minutes to 2.5 hours advance Parker Spiral warning</p>
         </div>
-        <div class="slide-timing">⏱ 5:45 – 6:45</div>
+        <div class="slide-timing">⏱ 3:00 – 3:30 (30s)</div>
       </div>
       <div class="slide-body">
         <div class="col-half">
           <div class="card" style="border-left: 3px solid var(--purple);">
-            <div class="card-title" style="color: var(--purple);">🛰 LIVE SATELLITE TELEMETRY INGESTION</div>
-            <ul class="bullet-list" style="gap: 8px; font-size: 13px;">
-              <li><span class="b-dot"></span><div><strong>NOAA GOES-18:</strong> Integral Protons (&ge;10 MeV & &ge;100 MeV pfu).</div></li>
-              <li><span class="b-dot"></span><div><strong>NOAA GOES-19:</strong> Outer Belt Relativistic Electrons (&ge;2 MeV).</div></li>
-              <li><span class="b-dot"></span><div><strong>DSCOVR L1:</strong> Solar Wind Speed (km/s) & IMF $B_z$ Reconnection (nT).</div></li>
-              <li><span class="b-dot"></span><div><strong>GOES X-Ray:</strong> Soft/Hard Flare Bursts (0.1–0.8 nm).</div></li>
+            <div class="card-title" style="color: var(--purple);">🛰 LIVE SATELLITE STREAM PIPELINE</div>
+            <ul class="bullet-list" style="gap: 8px; font-size: 12.5px;">
+              <li><span class="b-dot"></span><div><strong>NOAA GOES-18/19:</strong> Integral Protons (&ge;10, &ge;50, &ge;100 MeV) &amp; Relativistic Electrons.</div></li>
+              <li><span class="b-dot"></span><div><strong>DSCOVR L1 Satellite:</strong> Solar Wind Speed (km/s) &amp; IMF B_z Reconnection.</div></li>
+              <li><span class="b-dot"></span><div><strong>NASA OMNI2 Archive:</strong> Historical calibration against Cycle 24/25 storms.</div></li>
             </ul>
           </div>
         </div>
         <div class="col-half">
           <div class="card">
-            <div class="card-title">🤖 GEMINI AI GENERATIVE COPILOT</div>
+            <div class="card-title">🤖 GEMINI AI FLIGHT SURGEON CO-PILOT</div>
             <p style="font-size: 13px; color: #cbd5e1; line-height: 1.55;">
-              Powered by high-speed <code>gemini-3.1-flash-lite</code> with failover pool. Formatted into clean executive cards with zero markdown asterisks or backslashes.
+              Powered by high-speed <code>gemini-3.1-flash-lite</code> with automatic multi-key failover pool. Analyzes Parker Spiral transit physics to predict coronal mass ejection arrival times.
             </p>
-            <div style="background: rgba(167, 139, 250, 0.12); border: 1px solid rgba(167, 139, 250, 0.3); border-radius: 6px; padding: 10px; font-size: 12px; color: #e9d5ff; font-family: 'IBM Plex Mono', monospace;">
-              &Delta;t_warn = L_Parker(V_sw)/(beta &bull; c) - 8.32 min &rarr; Advance notice: 42m to 2.5h!
+            <div style="background: rgba(167, 139, 250, 0.12); border: 1px solid rgba(167, 139, 250, 0.35); border-radius: 8px; padding: 10px; font-size: 12px; color: #e9d5ff; font-family: 'IBM Plex Mono', monospace;">
+              &Delta;t_warn = L_Parker(V_sw)/(beta &bull; c) - 8.3 min &rarr; Advance notice: 42m to 2.5h!
             </div>
           </div>
         </div>
       </div>
       <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"GadaSpace connects directly to live NOAA GOES-18 and DSCOVR satellites. Using the Parker Spiral equation, Gemini AI calculates the speed difference between light-speed X-rays and slower protons, giving astronauts between 42 minutes and 2.5 hours of advance warning before a solar storm strikes."</span>
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"GadaSpace connects directly to live NOAA GOES-18 and DSCOVR satellites. Using Google Gemini AI and the Parker Spiral equations, we compute the speed delta between light-speed X-rays and slower protons, giving astronauts between 42 minutes and 2.5 hours of advance warning before a solar particle storm arrives."</span>
       </div>
     </div>
 
-    <!-- SLIDE 8 -->
+    <!-- ====================================================================
+         SLIDE 8: 3D TRAJECTORY CORRIDORS (MOON & MARS)
+         ==================================================================== -->
     <div class="slide" id="slide-8">
       <div class="slide-header">
         <div>
-          <span class="slide-num-pill">SLIDE 08 / 12 &bull; 3D TRAJECTORY CORRIDORS</span>
+          <span class="slide-num-pill">SLIDE 08 / 10 &bull; 3D TRAJECTORY</span>
+          <span class="slide-pillar-tag">PILLAR 1 &amp; 5: IMPACT &amp; PRESENTATION</span>
           <h2 class="slide-title">3D Spacecraft Trajectory Radiation Corridors</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Interactive 3D Digital Twin: Direct TLI vs. Polar High-Inclination Bypass Corridor</p>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Interactive 3D flight paths: Direct Apollo vs. Polar High-Inclination Bypass</p>
         </div>
-        <div class="slide-timing">⏱ 6:45 – 7:45</div>
+        <div class="slide-timing">⏱ 3:30 – 4:00 (30s)</div>
       </div>
       <div class="slide-body">
         <div class="col-half">
           <div class="card" style="border-left: 3px solid var(--rose);">
-            <div class="card-title" style="color: var(--rose);">PATH 1: DIRECT HOHMANN TLI</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">3.2 days (76.8h). Cuts through dense inner Van Allen proton belt ($L=1.5–2.2$). Peak rate: <strong>18.4 mSv/h</strong>. Total dose: 3.8 mSv (quiet) / 68.5 mSv (SPE).</p>
+            <div class="card-title" style="color: var(--rose);">PATH 1: DIRECT HOHMANN TRANS-LUNAR</div>
+            <p style="font-size: 12.5px; color: #cbd5e1;">
+              Cuts through dense inner Van Allen proton belt ($L=1.5–2.2$). Peak radiation rate: <strong>18.4 mSv/hour</strong>. High exposure risk during solar flare events.
+            </p>
           </div>
           <div class="card" style="border-left: 3px solid var(--emerald);">
             <div class="card-title" style="color: var(--emerald);">PATH 2: POLAR HIGH-INCLINATION BYPASS</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">4.6 days. Launches at $i=68.5^\circ$ over magnetic poles through open field lines. Completely avoids trapped proton horn. <strong>63% total dose reduction (1.4 mSv)</strong>!</p>
+            <p style="font-size: 12.5px; color: #cbd5e1;">
+              Launches at $i=68.5^\circ$ over Earth's magnetic poles through open magnetic field lines. Completely avoids trapped proton horns. <strong>63% total dose reduction</strong>!
+            </p>
           </div>
         </div>
         <div class="col-half">
           <div class="card" style="border-left: 3px solid var(--purple);">
-            <div class="card-title" style="color: var(--purple);">PATH 3: MARS FAST CONJUNCTION SPRINT</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">165 days vs. 259-day Hohmann orbit. Cuts deep-space heavy ion GCR exposure by nearly 40%, saving astronauts from 134 mSv of chronic radiation.</p>
+            <div class="card-title" style="color: var(--purple);">PATH 3: MARS CONJUNCTION SPRINT</div>
+            <p style="font-size: 12.5px; color: #cbd5e1;">
+              165-day high-energy transit vs. 259-day Hohmann orbit, cutting chronic Galactic Cosmic Ray exposure by 40% and saving 134 mSv of lifetime dose.
+            </p>
           </div>
           <div class="card">
-            <div class="card-title">🎮 3D INTERACTIVE FEATURES</div>
-            <p style="font-size: 12px; color: var(--muted);">Waypoint scrub slider ($0\% \to 100\%$), real-time Geiger audio clicks, 3D Orion model with Kapton MLI, and congested Van Allen radiation particle dots.</p>
+            <div class="card-title">🎮 INTERACTIVE 3D FEATURES</div>
+            <p style="font-size: 12px; color: var(--muted);">
+              Full WebGL orbital engine with 0–100% waypoint scrub slider, live dose rate readouts, and real-time Geiger audio cues.
+            </p>
           </div>
         </div>
       </div>
       <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"Under our AI predictor, we built an interactive 3D Spacecraft Trajectory Studio. The standard Apollo transfer punches through the inner Van Allen belt with an 18.4 mSv/hr spike. Look at Path 2: our Polar Bypass Corridor launches at 68.5 degrees over the poles, bypassing the trapped belt completely and slashing total radiation by 63%!"</span>
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"In our 3D Trajectory Studio, judges can test flight paths to the Moon and Mars. Path 1 shows the standard Apollo orbit punching through the Van Allen belt. Path 2 demonstrates our Polar Bypass Corridor, which launches at 68 degrees over the poles, bypassing trapped radiation completely and slashing transit dose by 63%!"</span>
       </div>
     </div>
 
-    <!-- SLIDE 9 -->
+    <!-- ====================================================================
+         SLIDE 9: USER-FRIENDLY VS. EXPERT PLATFORM
+         ==================================================================== -->
     <div class="slide" id="slide-9">
       <div class="slide-header">
         <div>
-          <span class="slide-num-pill">SLIDE 09 / 12 &bull; RADIOBIOLOGY</span>
-          <h2 class="slide-title">Radiobiology & DNA Double-Strand Break (DSB) Modeling</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Beyond Sieverts: ICRP-60/103 Multi-Organ Dosimetry & Enzymatic Repair</p>
+          <span class="slide-num-pill">SLIDE 09 / 10 &bull; ACCESSIBILITY</span>
+          <span class="slide-pillar-tag">PILLAR 5: PRESENTATION &amp; USABILITY</span>
+          <h2 class="slide-title">Dual Experience: Student/Explorer vs. Expert Mode</h2>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">Designed for everyone: Zero confusing equations for beginners, full physics for judges</p>
         </div>
-        <div class="slide-timing">⏱ 7:45 – 8:30</div>
-      </div>
-      <div class="slide-body">
-        <div class="col-half">
-          <div class="card">
-            <div class="card-title">🧬 4 ORGAN EQUIVALENT-DOSE PROBES</div>
-            <ul class="bullet-list" style="gap: 8px; font-size: 13px;">
-              <li><span class="b-dot"></span><div><strong>Bone Marrow (BFO):</strong> Monitored against NASA 250 mSv 30-day limit.</div></li>
-              <li><span class="b-dot"></span><div><strong>Eye Lens:</strong> Cataractogenesis threshold calibrated at 1,000 mSv.</div></li>
-              <li><span class="b-dot"></span><div><strong>Central Nervous System:</strong> Cognitive function tracked against 500 mSv limit.</div></li>
-              <li><span class="b-dot"></span><div><strong>Skin & Epithelium:</strong> Acute erythema ceiling tracked at 1,500 mSv.</div></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-half">
-          <div class="metric-grid" style="grid-template-columns: 1fr 1fr;">
-            <div class="metric-box">
-              <div class="metric-val" style="color: var(--emerald);">432 mSv</div>
-              <div class="metric-lbl">900-Day Mars Cumulative Dose (Limit = 600 mSv)</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-val" style="color: var(--cyan);">&lt; 2.4%</div>
-              <div class="metric-lbl">Lifetime Excess Cancer Mortality Risk (REIC &lt; 3%)</div>
-            </div>
-          </div>
-          <div class="card" style="border-left: 3px solid var(--purple);">
-            <div class="card-title" style="color: var(--purple);">BIOPHYSICAL DSB DYNAMICS</div>
-            <p style="font-size: 12.5px; color: #cbd5e1;">Simulates real-time DNA double-strand break cleavage from high-Z iron ions, proving radioprotective melanin biopolymers accelerate cellular repair.</p>
-          </div>
-        </div>
-      </div>
-      <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"In radiobiology, absorbed dose does not equal biological harm. In our 3D radiobiology lab, we model DNA double-strand breaks across four organ probes under ICRP-60 standards, proving crew cumulative dose stays safely under NASA's 600 mSv career limit."</span>
-      </div>
-    </div>
-
-    <!-- SLIDE 10 -->
-    <div class="slide" id="slide-10">
-      <div class="slide-header">
-        <div>
-          <span class="slide-num-pill">SLIDE 10 / 12 &bull; BENCHMARKING</span>
-          <h2 class="slide-title">Why GadaSpace Wins: Aerospace Benchmarking</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Quantitative comparison against conventional NASA & aerospace baselines</p>
-        </div>
-        <div class="slide-timing">⏱ 8:30 – 9:15</div>
-      </div>
-      <div class="slide-body">
-        <div style="width: 100%; overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; font-size: 13px; font-family: 'IBM Plex Mono', monospace;">
-            <thead>
-              <tr style="background: var(--elevated); border-bottom: 2px solid var(--border);">
-                <th style="padding: 10px; text-align: left; color: var(--muted);">CAPABILITY</th>
-                <th style="padding: 10px; text-align: left; color: var(--rose);">CONVENTIONAL AEROSPACE</th>
-                <th style="padding: 10px; text-align: left; color: var(--emerald);">GADASPACE &bull; HORIZON-X</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 9px; font-weight: 700; color: #fff;">Materials</td>
-                <td style="padding: 9px; color: #cbd5e1;">Heavy Lead (Z=82) or Aluminum</td>
-                <td style="padding: 9px; color: var(--emerald); font-weight: 600;">¹⁵⁷Gd-MXene + HDPE + Melanin (-92.4% Neutrons)</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 9px; font-weight: 700; color: #fff;">EVA Spacesuit</td>
-                <td style="padding: 9px; color: #cbd5e1;">Passive, non-digital, battery &lt;45m if magnet</td>
-                <td style="padding: 9px; color: var(--cyan); font-weight: 600;">Autonomous Digital Suit (0W Standby, >18.5h Life)</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 9px; font-weight: 700; color: #fff;">Sensors</td>
-                <td style="padding: 9px; color: #cbd5e1;">Single detector saturation (&plusmn;18.5% error)</td>
-                <td style="padding: 9px; color: var(--purple); font-weight: 600;">5-Detector Kalman Fusion (&plusmn;2.8% RMSE accuracy)</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 9px; font-weight: 700; color: #fff;">Trajectories</td>
-                <td style="padding: 9px; color: #cbd5e1;">Fixed ballistic Hohmann orbits</td>
-                <td style="padding: 9px; color: var(--gold); font-weight: 600;">3D Radiation Corridors (Polar 63% dose cut)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"Where industry relies on heavy metal that creates secondary neutrons, we use ¹⁵⁷Gd-MXene. Where suits are passive, our smart suit provides 18 hours of life with on-demand magnetic defense. And where missions use rigid orbits, our AI 3D corridor cuts radiation by 63%."</span>
-      </div>
-    </div>
-
-    <!-- SLIDE 11 -->
-    <div class="slide" id="slide-11">
-      <div class="slide-header">
-        <div>
-          <span class="slide-num-pill">SLIDE 11 / 12 &bull; VERIFICATION</span>
-          <h2 class="slide-title">Operational Platform & Peer-Reviewed Validation</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Calibrated against NASA Apollo, RBSP, LRO CRaTER, MSL RAD & NOAA SWPC</p>
-        </div>
-        <div class="slide-timing">⏱ 9:15 – 9:45</div>
+        <div class="slide-timing">⏱ 4:00 – 4:30 (30s)</div>
       </div>
       <div class="slide-body">
         <div class="col-half">
           <div class="card" style="border-left: 3px solid var(--cyan);">
-            <div class="card-title">💻 100% OPERATIONAL FRONTEND PLATFORM</div>
-            <ul class="bullet-list" style="gap: 8px; font-size: 13px;">
-              <li><span class="b-dot"></span><div>Built with React 19, Three.js WebGL, and Plotly.js.</div></li>
-              <li><span class="b-dot"></span><div>Physical Web Serial API USB Geiger & optical CMOS camera bridge.</div></li>
-              <li><span class="b-dot"></span><div>Live NOAA satellite JSON stream parser with offline fallback.</div></li>
-              <li><span class="b-dot"></span><div>Web Audio API Geiger radiation click sonifier.</div></li>
+            <div class="card-title">🎓 STUDENT &amp; EXPLORER MODE</div>
+            <ul class="bullet-list" style="gap: 8px; font-size: 12.5px;">
+              <li><span class="b-dot"></span><div><strong>Vertical Left-Hand Navigation:</strong> Clean, intuitive vertical sidebar.</div></li>
+              <li><span class="b-dot"></span><div><strong>Zero Scary Equations:</strong> Plain-English takeaways on every card.</div></li>
+              <li><span class="b-dot"></span><div><strong>Interactive 3D Models:</strong> Rotate the spacesuit, test magnetic shields, explore Mars highway, and examine the DNA helix.</div></li>
             </ul>
           </div>
         </div>
         <div class="col-half">
-          <div class="card" style="border-left: 3px solid var(--purple);">
-            <div class="card-title" style="color: var(--purple);">📚 PEER-REVIEWED NASA CITATIONS</div>
-            <ul class="bullet-list" style="gap: 6px; font-size: 12.5px; color: #cbd5e1;">
-              <li>&bull; NASA LRO CRaTER Lunar Regolith Dosimetry (PDS Archive)</li>
-              <li>&bull; NASA MSL Curiosity RAD Deep-Space Transit (Science 2014)</li>
-              <li>&bull; NASA Van Allen Probes RBSP Trapped Particle Flux</li>
-              <li>&bull; NASA OLTARIS Heavy Ion Transport Code</li>
+          <div class="card" style="border-left: 3px solid var(--gold);">
+            <div class="card-title" style="color: var(--gold);">🔬 FLIGHT SURGEON &amp; EXPERT MODE</div>
+            <ul class="bullet-list" style="gap: 8px; font-size: 12.5px;">
+              <li><span class="b-dot" style="background: var(--gold);"></span><div><strong>Full NASA Equations:</strong> D = E/m &rarr; Q(LET) &rarr; H Equivalent Dose.</div></li>
+              <li><span class="b-dot" style="background: var(--gold);"></span><div><strong>Pareto Trade-Off Matrix:</strong> Dose vs. Mass vs. Power optimization.</div></li>
+              <li><span class="b-dot" style="background: var(--gold);"></span><div><strong>Hardware Bridges:</strong> Web Serial USB Geiger &amp; covered-lens CMOS optical sensor inputs.</div></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"Everything you see today is a fully functional, production-compiled platform running live React 19 and Three.js. You can plug in a real USB Geiger counter right now or sync live NOAA feeds. Every equation is verified against NASA LRO CRaTER and Curiosity RAD data."</span>
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"Science is only powerful if people can understand it. We built two tailored platform modes: Student Mode with vertical left navigation and zero scary equations so young learners can explore 3D spacesuits and DNA models, and Expert Flight Surgeon Mode with full differential equations and Pareto trade-off matrices for aerospace engineers."</span>
       </div>
     </div>
 
-    <!-- SLIDE 12 -->
-    <div class="slide" id="slide-12">
+    <!-- ====================================================================
+         SLIDE 10: 5-PILLAR SCORECARD & CONCLUSION
+         ==================================================================== -->
+    <div class="slide" id="slide-10">
       <div class="slide-header">
         <div>
-          <span class="slide-num-pill">SLIDE 12 / 12 &bull; CONCLUSION</span>
-          <h2 class="slide-title">Returning Safely to the Moon, Reaching Out to Mars</h2>
-          <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">GadaSpace: Protecting Humanity's Next Giant Leap</p>
+          <span class="slide-num-pill">SLIDE 10 / 10 &bull; CONCLUSION</span>
+          <span class="slide-pillar-tag">5 CORE CRITERIA SCORECARD</span>
+          <h2 class="slide-title">Protecting Humanity's Next Giant Leap</h2>
+          <p style="font-size: 13.5px; color: var(--muted); margin-top: 4px;">GadaSpace Team Horizon-X &bull; NASA Space Apps Challenge 2026</p>
         </div>
-        <div class="slide-timing">⏱ 9:45 – 10:00</div>
+        <div class="slide-timing">⏱ 4:30 – 5:00 (30s)</div>
       </div>
       <div class="slide-body">
-        <div class="col-half" style="align-items: center; text-align: center;">
-          <div style="font-size: 64px; margin-bottom: 12px;">🌟</div>
-          <h3 style="font-size: 24px; font-weight: 700; color: #fff;">Thank You, Judges!</h3>
-          <p style="font-size: 14px; color: var(--cyan); margin-top: 8px;">TEAM HORIZON-X &bull; GADASPACE AEROSPACE</p>
-        </div>
         <div class="col-half">
-          <div class="card" style="border-left: 3px solid var(--emerald); padding: 24px;">
-            <div class="card-title" style="font-size: 16px; color: var(--emerald);">MISSION CONTROL STATEMENT</div>
-            <p style="font-size: 14px; color: #e2e8f0; line-height: 1.6; margin-top: 8px;">
-              "The goal of Artemis is not merely to plant flags and leave footprints—it is to build a sustained human civilization on the Moon and pave the road to Mars. To do that, our astronauts need smart materials, digital suits, and AI-optimized flight paths. GadaSpace delivers that complete, unified shield."
-            </p>
+          <table style="width: 100%; border-collapse: collapse; font-size: 12px; font-family: 'IBM Plex Mono', monospace;">
+            <thead>
+              <tr style="background: var(--elevated); border-bottom: 2px solid var(--border);">
+                <th style="padding: 6px; text-align: left; color: var(--gold);">CRITERIA</th>
+                <th style="padding: 6px; text-align: left; color: #fff;">OUR SOLUTION DELIVERY</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 6px; color: var(--cyan); font-weight: 700;">1. IMPACT</td>
+                <td style="padding: 6px; color: #cbd5e1;">Eliminates #1 biological barrier for Artemis &amp; Mars; keeps dose under 600 mSv PEL.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 6px; color: var(--purple); font-weight: 700;">2. CREATIVITY</td>
+                <td style="padding: 6px; color: #cbd5e1;">BeCO + ¹⁵⁷Gd-MXene, Smart Spacesuit with Geiger clicks, Gadaa Kalman consensus.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 6px; color: var(--emerald); font-weight: 700;">3. VALIDITY</td>
+                <td style="padding: 6px; color: #cbd5e1;">Strict NASA-STD-3001, ICRP-60, and &plusmn;4.8% Kalman fusion accuracy.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 6px; color: var(--gold); font-weight: 700;">4. RELEVANCE</td>
+                <td style="padding: 6px; color: #cbd5e1;">Live NOAA GOES/DSCOVR satellite telemetry + NASA OLTARIS &amp; CRaTER data.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 6px; color: var(--rose); font-weight: 700;">5. PRESENTATION</td>
+                <td style="padding: 6px; color: #cbd5e1;">Interactive 3D WebGL, Geiger audio cues, Student/Expert dual views, live on GitHub.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-half" style="align-items: center; text-align: center;">
+          <div style="font-size: 48px; margin-bottom: 8px;">🪐</div>
+          <h3 style="font-size: 22px; font-weight: 700; color: #fff;">Thank You, Judges!</h3>
+          <p style="font-size: 13.5px; color: var(--cyan); margin-top: 4px;">TEAM HORIZON-X &bull; GADASPACE PLATFORM</p>
+          <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 10px 16px; margin-top: 14px; font-size: 12.5px; color: #a7f3d0;">
+            🚀 Open-Source on GitHub &bull; Production Deployed on Vercel
           </div>
-          <div style="text-align: center; color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 700; margin-top: 10px;">
-            ✦ OPEN FOR JUDGES' QUESTIONS & ANSWERS ✦
+          <div style="color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 700; margin-top: 10px;">
+            ✦ OPEN FOR JUDGE QUESTIONS &amp; ANSWERS (4 MIN) ✦
           </div>
         </div>
       </div>
       <div class="notes-drawer">
-        <span class="notes-tag">SPEAKER SCRIPT</span>
-        <span>"Judges: To explore deep space, our astronauts need more than courage. They need materials that do not shatter under cosmic rays, digital suits that defend them autonomously, and AI that guides them through safe corridors. GadaSpace delivers that shield. Thank you, and we welcome your questions!"</span>
+        <span class="notes-tag">SPEAKER SCRIPT:</span>
+        <span>"To conclude: Artemis is about building permanent civilizations on the Moon and Mars. GadaSpace delivers the complete, unified shield to protect our astronauts. Our code is live on GitHub and deployed on Vercel. Thank you, judges, and we are ready for your questions!"</span>
       </div>
     </div>
 
   </div>
 
-  <!-- Global Navigation HUD -->
+  <!-- Bottom Navigation & Timer Bar -->
   <div id="nav-bar">
-    <button class="nav-btn" onclick="prevSlide()">&#9664; Prev</button>
-    <div style="font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: var(--cyan);">
-      <span id="slide-num-display">1</span> / 12
-    </div>
+    <button class="nav-btn" id="prev-btn" title="Previous Slide (Left Arrow)">◀</button>
     <div class="progress-track">
-      <div class="progress-fill" id="progress-fill"></div>
+      <div class="progress-fill" id="progress-bar"></div>
     </div>
-    <button class="nav-btn" onclick="nextSlide()">Next &#9654;</button>
-    <span style="color: var(--border);">|</span>
-    <button class="nav-btn" onclick="toggleNotes()" title="Toggle Speaker Script Notes (N)">📝 Notes</button>
-    <button class="nav-btn" onclick="toggleFullscreen()" title="Fullscreen Mode (F)">⛶ Fullscreen</button>
+    <span id="slide-indicator" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 700; color: #fff;">01 / 10</span>
+    <button class="nav-btn" id="next-btn" title="Next Slide (Right Arrow or Space)">▶</button>
+
+    <div class="deck-timer" id="timer-display" title="Click to Start / Pause 5-Minute Pitch Timer">⏱ 5:00</div>
+    <button class="geiger-test-btn" id="geiger-btn" title="Test Web Audio Geiger Click">🔊 Click Sound</button>
+    <button class="nav-btn" id="print-btn" title="Print or Export to PDF" onclick="window.print()">🖨️</button>
   </div>
 
   <script>
     let currentSlide = 1;
-    const totalSlides = 12;
+    const totalSlides = 10;
 
-    function showSlide(n) {
-      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-      const target = document.getElementById(`slide-${n}`);
-      if (target) {
-        target.classList.add('active');
-        currentSlide = n;
-        document.getElementById('slide-num-display').innerText = n;
-        document.getElementById('progress-fill').style.width = `${(n / totalSlides) * 100}%`;
-      }
-    }
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
 
-    function nextSlide() {
-      if (currentSlide < totalSlides) showSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-      if (currentSlide > 1) showSlide(currentSlide - 1);
-    }
-
-    function toggleNotes() {
-      document.querySelectorAll('.notes-drawer').forEach(drawer => {
-        drawer.style.display = drawer.style.display === 'none' ? 'flex' : 'none';
+      document.querySelectorAll('.slide').forEach((s, idx) => {
+        if (idx + 1 === currentSlide) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
       });
+
+      document.getElementById('slide-indicator').textContent =
+        (currentSlide < 10 ? '0' : '') + currentSlide + ' / ' + totalSlides;
+
+      const pct = (currentSlide / totalSlides) * 100;
+      document.getElementById('progress-bar').style.width = pct + '%';
     }
 
-    function toggleFullscreen() {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-      } else {
-        document.exitFullscreen();
-      }
-    }
+    document.getElementById('prev-btn').addEventListener('click', () => showSlide(currentSlide - 1));
+    document.getElementById('next-btn').addEventListener('click', () => showSlide(currentSlide + 1));
 
-    // Keyboard Shortcuts
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'Space') {
-        nextSlide();
-      } else if (e.key === 'ArrowLeft') {
-        prevSlide();
-      } else if (e.key.toLowerCase() === 'f') {
-        toggleFullscreen();
-      } else if (e.key.toLowerCase() === 'n') {
-        toggleNotes();
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        showSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        showSlide(currentSlide - 1);
       }
     });
+
+    // 5-Minute Pitch Countdown Timer
+    let timeLeft = 300; // 5 minutes
+    let timerRunning = false;
+    let timerInterval = null;
+
+    const timerDisplay = document.getElementById('timer-display');
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timeLeft / 60);
+      const secs = timeLeft % 60;
+      timerDisplay.textContent = '⏱ ' + mins + ':' + (secs < 10 ? '0' : '') + secs;
+      if (timeLeft <= 30) {
+        timerDisplay.style.color = '#f43f5e';
+        timerDisplay.style.borderColor = '#f43f5e';
+      } else if (timeLeft <= 60) {
+        timerDisplay.style.color = '#f59e0b';
+      } else {
+        timerDisplay.style.color = '#10b981';
+      }
+    }
+
+    timerDisplay.addEventListener('click', () => {
+      if (!timerRunning) {
+        timerRunning = true;
+        timerInterval = setInterval(() => {
+          if (timeLeft > 0) {
+            timeLeft--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            timerRunning = false;
+            timerDisplay.textContent = '⏱ TIME UP!';
+          }
+        }, 1000);
+      } else {
+        clearInterval(timerInterval);
+        timerRunning = false;
+      }
+    });
+
+    // Web Audio Synthesized Geiger Click Demo
+    let audioCtx = null;
+    document.getElementById('geiger-btn').addEventListener('click', () => {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      // Play 4 rapid Geiger clicks
+      for (let i = 0; i < 4; i++) {
+        setTimeout(() => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(2400 + Math.random() * 800, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.035);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.04);
+        }, i * 65);
+      }
+    });
+
+    showSlide(1);
   </script>
 </body>
 </html>

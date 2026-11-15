@@ -33,7 +33,9 @@ export default function HomePage({
   fetchLiveNoaa,
   audioEnabled,
   onToggleAudio,
-  onLaunchApp
+  onLaunchApp,
+  experienceMode,
+  setExperienceMode
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -208,20 +210,30 @@ export default function HomePage({
           </div>
 
           <nav className="nav-links" aria-label="Homepage Sections">
+            <button onClick={() => scrollToSection('beginner-guide')} style={{ color: '#38bdf8', fontWeight: 700 }}>Beginner Guide</button>
             <button onClick={() => scrollToSection('atlas')}>Capabilities Atlas</button>
             <button onClick={() => scrollToSection('mission')}>Mission</button>
             <button onClick={() => scrollToSection('philosophy')}>The Gadaa Philosophy</button>
             <button onClick={() => scrollToSection('spacetech')}>Live Lab</button>
-            <button onClick={() => scrollToSection('team')}>Architecture</button>
           </nav>
 
           <div className="nav-actions">
             <button
-              className="btn-cta-glow"
-              onClick={() => onLaunchApp('tab-3d')}
+              className="btn-cta-glow student-nav-btn"
+              onClick={() => onLaunchApp('story', 'explorer')}
+              title="Launch Student Mode with zero scary equations and interactive 3D models"
+              style={{ background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)', borderColor: 'rgba(56, 189, 248, 0.7)' }}
+            >
+              <span>🎓 Student Mode</span>
+            </button>
+
+            <button
+              className="btn-cta-glow expert-nav-btn"
+              onClick={() => onLaunchApp('tab-3d', 'expert')}
+              title="Launch Expert Flight Surgeon Mode with full equations and telemetry"
             >
               <Rocket size={15} />
-              <span>Explore Mission</span>
+              <span>🔬 Expert Mode</span>
               <span className="cta-flare" />
             </button>
 
@@ -310,24 +322,65 @@ export default function HomePage({
               and <strong>5-Detector Kalman Consensus</strong>.
             </p>
 
-            {/* Primary & Secondary CTAs */}
-            <div className="hero-cta-row">
-              <button className="btn-hero-primary" onClick={() => onLaunchApp('tab-3d')}>
-                <Rocket size={18} />
-                <span>Launch Experience</span>
-                <ChevronRight size={16} className="arrow-shift" />
-              </button>
+            {/* Dual Mode Switcher for Beginners/Students vs Experts */}
+            <div className="hero-mode-selection-box">
+              <div className="hero-mode-header">
+                <Sparkles size={14} className="gold-icon" />
+                <span>SELECT YOUR EXPERIENCE LEVEL</span>
+              </div>
+              <div className="hero-mode-buttons">
+                <button
+                  type="button"
+                  className="btn-mode-card student"
+                  onClick={() => onLaunchApp('story', 'explorer')}
+                  title="Designed for students and non-experts: No scary equations, rich 3D models and plain-English takeaways"
+                >
+                  <div className="mode-card-badge">RECOMMENDED FOR STUDENTS</div>
+                  <div className="mode-card-title">
+                    <span>🎓 Student &amp; Explorer Mode</span>
+                    <ArrowRight size={15} className="arrow-shift" />
+                  </div>
+                  <p className="mode-card-desc">
+                    Zero scary equations! Vertical easy navigation, interactive 3D spacesuits with Geiger audio clicks, 3D Mars highways, and plain takeaways.
+                  </p>
+                </button>
 
-              <button
-                className="btn-hero-secondary"
-                onClick={() => {
-                  setBriefingSlide(0);
-                  setBriefingOpen(true);
-                }}
-              >
-                <Play size={15} />
-                <span>60s Briefing / Learn More</span>
-              </button>
+                <button
+                  type="button"
+                  className="btn-mode-card expert"
+                  onClick={() => onLaunchApp('tab-3d', 'expert')}
+                  title="Full mathematical physics, differential equations, and raw telemetry"
+                >
+                  <div className="mode-card-badge gold">FOR JUDGES &amp; PHYSICISTS</div>
+                  <div className="mode-card-title">
+                    <span>🔬 Flight Surgeon Mode</span>
+                    <ArrowRight size={15} className="arrow-shift" />
+                  </div>
+                  <p className="mode-card-desc">
+                    Full NASA-STD-3001 physics equations (D = E/m &rarr; Q(LET) &rarr; H), raw telemetry, Pareto matrix, and USB hardware bridge.
+                  </p>
+                </button>
+              </div>
+
+              <div className="hero-sublinks-row">
+                <button
+                  type="button"
+                  className="btn-text-link"
+                  onClick={() => scrollToSection('beginner-guide')}
+                >
+                  <BookOpen size={14} />
+                  <span>Read 60-Second Plain-English Student Guide &darr;</span>
+                </button>
+                <a
+                  href="/presentation.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-text-link gold"
+                >
+                  <Presentation size={14} />
+                  <span>Launch 10-Slide Pitch Deck (5-Min Timer) &rarr;</span>
+                </a>
+              </div>
             </div>
 
             {/* Live Grounded Telemetry Strip */}
@@ -474,6 +527,102 @@ export default function HomePage({
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          STUDENT & NON-EXPERT QUICK GUIDE SECTION (#beginner-guide)
+         ================================================================ */}
+      <section id="beginner-guide" className="beginner-guide-section">
+        <div className="section-container">
+          <div className="section-header aos-reveal">
+            <div className="section-kicker">
+              <Sparkles size={14} className="gold-icon" />
+              <span>00 &bull; STUDENT &amp; NON-EXPERT QUICK GUIDE</span>
+            </div>
+            <h2 className="section-title">
+              Space Radiation Protection <span className="grad-gold">in Plain English</span>
+            </h2>
+            <p className="section-lead">
+              Never studied astrophysics or nuclear physics? Here is everything you need to know about the challenges we faced, the solutions we engineered, and the core takeaways.
+            </p>
+          </div>
+
+          <div className="bg-intro-box aos-reveal">
+            <h3>Why Is Deep Space So Dangerous for Astronauts?</h3>
+            <p>
+              Earth has a thick atmosphere and a powerful magnetic field that protect us from cosmic radiation. But as soon as astronauts travel to the Moon or Mars, they are hit by two deadly threats: <strong>Galactic Cosmic Rays</strong> (relativistic atomic nuclei from exploded stars) and <strong>Solar Particle Events</strong> (giant proton storms blasted from the Sun). An unshielded Mars trip delivers over 1,200 mSv—double NASA&apos;s lifetime limit—shredding human DNA and causing acute radiation sickness.
+            </p>
+          </div>
+
+          <div className="bg-quad-grid">
+            <div className="bg-quad-card aos-reveal">
+              <span className="bg-card-num">BREAKTHROUGH 01</span>
+              <h4>The BeCO Composite Shield</h4>
+              <p>
+                People used to think thick lead metal was best. But high-speed cosmic rays smash into heavy lead nuclei, causing <strong>nuclear spallation</strong> that spews deadly secondary neutrons! We replace heavy lead with <strong>Beryllium-Carbon-Oxygen (BeCO)</strong>, HDPE, and ¹⁵⁷Gd-MXene nanocomposites that stop cosmic rays without producing secondary neutrons.
+              </p>
+              <div className="bg-highlight">
+                ✨ -61.5% Dose Reduction &bull; Saves 355 kg launch weight!
+              </div>
+            </div>
+
+            <div className="bg-quad-card aos-reveal">
+              <span className="bg-card-num">BREAKTHROUGH 02</span>
+              <h4>Smart Suit with Geiger Audio Clicks</h4>
+              <p>
+                Radiation is silent and invisible. Our recreated <strong>Smart EVA Spacesuit</strong> incorporates real-time synthesized <strong>auditory Geiger clicks</strong> directly into the astronaut&apos;s helmet that click faster when radiation rises, while automatically firing micro-magnetic coils that deflect 88% of radiation away from vital organs.
+              </p>
+              <div className="bg-highlight">
+                🔊 Instant audio warning + 18.5 hours battery life!
+              </div>
+            </div>
+
+            <div className="bg-quad-card aos-reveal">
+              <span className="bg-card-num">BREAKTHROUGH 03</span>
+              <h4>Kalman Multi-Sensor Consensus</h4>
+              <p>
+                A single sensor can easily be fooled—standard silicon detectors are 92% blind to neutrons! Inspired by the democratic consensus of the Oromo Gadaa Gumii assembly, we fuse <strong>5 different sensors</strong> with a Kalman filter into ONE unified reading with &plusmn;4.8% accuracy.
+              </p>
+              <div className="bg-highlight">
+                ⚖️ 5 sensors act as one single source of truth.
+              </div>
+            </div>
+
+            <div className="bg-quad-card aos-reveal">
+              <span className="bg-card-num">BREAKTHROUGH 04</span>
+              <h4>3D Space Trajectory Highways</h4>
+              <p>
+                Space is filled with invisible radiation donut clouds (the Van Allen belts). Our 3D Trajectory optimizer acts like a cosmic GPS, calculating polar high-inclination flight paths that avoid trapped radiation hotspots on the way to the Moon or Mars.
+              </p>
+              <div className="bg-highlight">
+                🚀 63% radiation reduction on lunar transit!
+              </div>
+            </div>
+          </div>
+
+          <div className="takeaways-action-row aos-reveal" style={{ justifyContent: 'center', gap: 18 }}>
+            <button
+              type="button"
+              className="btn-st-primary"
+              onClick={() => onLaunchApp('story', 'explorer')}
+              style={{ fontSize: 15, padding: '14px 30px' }}
+            >
+              <span>🚀 Enter 3D Student Explorer World</span>
+              <ChevronRight size={18} />
+            </button>
+
+            <a
+              href="/presentation.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-st-secondary"
+              style={{ fontSize: 14, padding: '13px 24px' }}
+            >
+              <Presentation size={16} />
+              <span>Launch 10-Slide Pitch Presentation</span>
+            </a>
           </div>
         </div>
       </section>

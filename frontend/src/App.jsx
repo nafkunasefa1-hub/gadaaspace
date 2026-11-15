@@ -43,6 +43,7 @@ import SensorBridge from './SensorBridge';
 import StormPredictorPanel from './StormPredictorPanel';
 import FutureRoadmapPanel from './FutureRoadmapPanel';
 import Dna3DViewport from './Dna3DViewport';
+import StudentExplorerView from './StudentExplorerView';
 import { GADASPACE_MODULES } from './moduleCatalog';
 import { runFullSimulation } from './physicsEngine';
 import { radiationSonifier } from './radiationAudio';
@@ -232,7 +233,9 @@ const GLOSSARY_ITEMS = [
 ];
 
 export default function App() {
-  const [viewMode, setViewMode] = useState('dashboard'); // 'dashboard' | 'home'
+  const [viewMode, setViewMode] = useState('home'); // 'home' | 'dashboard'
+  const [experienceMode, setExperienceMode] = useState('explorer'); // 'explorer' (student-friendly) | 'expert'
+  const [activeExplorerTab, setActiveExplorerTab] = useState('story');
   const [activeTab, setActiveTab] = useState('tab-3d');
   const [activeScene, setActiveScene] = useState('habitat');
 
@@ -246,8 +249,14 @@ export default function App() {
   const [glossaryCategory, setGlossaryCategory] = useState('all');
   const [glossaryQuery, setGlossaryQuery] = useState('');
 
-  const launchApp = (targetTab = 'tab-3d') => {
-    setActiveTab(targetTab);
+  const launchApp = (targetTab = 'tab-3d', mode = 'expert') => {
+    if (mode === 'explorer') {
+      setExperienceMode('explorer');
+      setActiveExplorerTab(targetTab === 'tab-3d' ? 'suit' : targetTab);
+    } else {
+      setExperienceMode('expert');
+      setActiveTab(targetTab);
+    }
     setViewMode('dashboard');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -919,7 +928,104 @@ export default function App() {
         audioEnabled={audioEnabled}
         onToggleAudio={toggleAudio}
         onLaunchApp={launchApp}
+        experienceMode={experienceMode}
+        setExperienceMode={setExperienceMode}
       />
+    );
+  }
+
+  // Student & Explorer Mode: Vertical Left Navigation & Simplified 3D Experience
+  if (viewMode === 'dashboard' && experienceMode === 'explorer') {
+    return (
+      <div className="app-container">
+        {/* Top Minimal Strip with Brand, NOAA status & Switcher */}
+        <header className="workspace-header student-header" style={{
+          background: 'rgba(6, 10, 20, 0.95)',
+          borderBottom: '1px solid rgba(148, 163, 184, 0.15)',
+          padding: '10px 24px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          position: 'sticky',
+          top: 0,
+          zIndex: 50,
+          backdropFilter: 'blur(16px)'
+        }}>
+          <div
+            className="brand"
+            onClick={() => setViewMode('home')}
+            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }}
+            title="Return to Home Starting Page"
+          >
+            <div style={{ width: 32, height: 32, borderRadius: '50%', overflow: 'hidden', border: '1.5px solid #d4af37' }}>
+              <img src="/gadaspace-logo.jpg" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <div>
+              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 15, fontWeight: 700, color: '#fff', letterSpacing: 0.5 }}>
+                GADA<span style={{ color: '#38bdf8' }}>Space</span>
+              </div>
+              <div style={{ fontSize: 10, color: '#94a3b8', fontFamily: 'IBM Plex Mono, monospace' }}>
+                STUDENT &bull; EXPLORER MODE
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <button
+              type="button"
+              className="cmd-btn"
+              onClick={() => {
+                setExperienceMode('expert');
+                setActiveTab('tab-3d');
+              }}
+              title="Switch to Expert Flight Surgeon Mode (Equations, Raw Telemetry & NASA Standards)"
+              style={{ borderColor: 'rgba(245, 158, 11, 0.5)', color: '#fde68a', display: 'inline-flex', alignItems: 'center', gap: 6 }}
+            >
+              <Zap size={13} style={{ color: '#fbbf24' }} />
+              <span>Switch to 🔬 Expert Mode</span>
+            </button>
+
+            <button
+              type="button"
+              className={`cmd-btn ${audioEnabled ? 'geiger-active' : ''}`}
+              onClick={toggleAudio}
+              title="Toggle Web Audio Geiger radiation clicks"
+            >
+              {audioEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
+              <span className="btn-lbl-hide-sm">{audioEnabled ? 'Geiger: ON' : 'Geiger Audio'}</span>
+            </button>
+
+            <a
+              href="/presentation.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cmd-btn"
+              style={{ textDecoration: 'none', borderColor: 'rgba(56, 189, 248, 0.45)', color: '#bae6fd', display: 'inline-flex', alignItems: 'center', gap: 6 }}
+              title="Launch the 10-Minute NASA Space Apps Slide Presentation"
+            >
+              <Presentation size={13} />
+              <span className="btn-lbl-hide-sm">10-Min Pitch</span>
+            </a>
+          </div>
+        </header>
+
+        <StudentExplorerView
+          simState={simState}
+          audioEnabled={audioEnabled}
+          onToggleAudio={toggleAudio}
+          spaceWeatherTelemetry={spaceWeatherTelemetry}
+          liveNoaaFluxBonus={liveNoaaFluxBonus}
+          noaaStatus={noaaStatus}
+          fetchLiveNoaa={fetchLiveNoaa}
+          isFetchingNoaa={isFetchingNoaa}
+          onSwitchToExpert={() => {
+            setExperienceMode('expert');
+            setActiveTab('tab-3d');
+          }}
+          activeExplorerTab={activeExplorerTab}
+          setActiveExplorerTab={setActiveExplorerTab}
+        />
+      </div>
     );
   }
 
@@ -1051,6 +1157,17 @@ export default function App() {
           </div>
 
           <div className="top-actions">
+            <button
+              type="button"
+              className="cmd-btn"
+              onClick={() => setExperienceMode('explorer')}
+              title="Switch to Student & Beginner Friendly Mode (Zero Scary Equations)"
+              style={{ borderColor: 'rgba(56, 189, 248, 0.55)', color: '#38bdf8', display: 'inline-flex', alignItems: 'center', gap: 6 }}
+            >
+              <Sparkles size={13} style={{ color: '#38bdf8' }} />
+              <span className="btn-lbl-hide-sm">🎓 Student Mode</span>
+            </button>
+
             {/* Primary Action: Sync Live NOAA SWPC Stream (Always Prominent & Accessible) */}
             <button
               type="button"
